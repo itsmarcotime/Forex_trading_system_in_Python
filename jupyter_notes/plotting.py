@@ -44,6 +44,17 @@ class CandlePlot:
             font=dict(size=12, color="#e1e1e1"),
         )
 
-    def show_plot(self, width=900, height=400, nticks=5):
+    def add_traces(self, line_traces):
+        for t in line_traces:
+            self.fig.add_trace(go.Scatter(
+                x=self.df_plot.sTime,
+                y=self.df_plot[t],
+                line=dict(width=2),
+                line_shape='spline',
+                name=t
+            ))
+
+    def show_plot(self, width=900, height=400, nticks=5, line_traces=[]):
+        self.add_traces(line_traces)
         self.update_layout(width, height, nticks)
         self.fig.show()
