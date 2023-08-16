@@ -11,6 +11,7 @@ class Instrument:
     def __repr__(self):
         return str(vars(self))
     
+    
     @classmethod
     def fromApiObject(cls, ob):
         return Instrument(
