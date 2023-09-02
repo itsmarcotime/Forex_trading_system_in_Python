@@ -24,7 +24,7 @@ def analyse_pair(instrument, granularity, ma_long, ma_short):
     print(price_data.head(3))
 
 def run_ma_sim(curr_list=["EUR", "USD"],
-                granularity=["H1"],
+                granularity=["H4"],
                 ma_long=[20,40,80],
                 ma_short=[10,20]):
     ic.load_instruments("./data")
