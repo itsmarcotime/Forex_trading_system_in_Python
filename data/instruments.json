@@ -1,219 +1,129 @@
 {
-  "EUR_ZAR": {
-    "name": "EUR_ZAR",
+  "USD_SGD": {
+    "name": "USD_SGD",
     "type": "CURRENCY",
-    "displayName": "EUR/ZAR",
+    "displayName": "USD/SGD",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.05"
+  },
+  "EUR_SEK": {
+    "name": "EUR_SEK",
+    "type": "CURRENCY",
+    "displayName": "EUR/SEK",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.03"
+  },
+  "HKD_JPY": {
+    "name": "HKD_JPY",
+    "type": "CURRENCY",
+    "displayName": "HKD/JPY",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.1"
+  },
+  "AUD_USD": {
+    "name": "AUD_USD",
+    "type": "CURRENCY",
+    "displayName": "AUD/USD",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.03"
+  },
+  "USD_CAD": {
+    "name": "USD_CAD",
+    "type": "CURRENCY",
+    "displayName": "USD/CAD",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.02"
+  },
+  "NZD_USD": {
+    "name": "NZD_USD",
+    "type": "CURRENCY",
+    "displayName": "NZD/USD",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.03"
+  },
+  "NZD_SGD": {
+    "name": "NZD_SGD",
+    "type": "CURRENCY",
+    "displayName": "NZD/SGD",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.05"
+  },
+  "USD_NOK": {
+    "name": "USD_NOK",
+    "type": "CURRENCY",
+    "displayName": "USD/NOK",
     "pipLocation": -4,
     "displayPrecision": 5,
     "tradeUnitsPrecision": 0,
     "marginRate": "0.07"
   },
-  "EUR_CHF": {
-    "name": "EUR_CHF",
+  "USD_CNH": {
+    "name": "USD_CNH",
     "type": "CURRENCY",
-    "displayName": "EUR/CHF",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.04"
-  },
-  "USD_PLN": {
-    "name": "USD_PLN",
-    "type": "CURRENCY",
-    "displayName": "USD/PLN",
+    "displayName": "USD/CNH",
     "pipLocation": -4,
     "displayPrecision": 5,
     "tradeUnitsPrecision": 0,
     "marginRate": "0.05"
   },
-  "GBP_AUD": {
-    "name": "GBP_AUD",
+  "SGD_CHF": {
+    "name": "SGD_CHF",
     "type": "CURRENCY",
-    "displayName": "GBP/AUD",
+    "displayName": "SGD/CHF",
     "pipLocation": -4,
     "displayPrecision": 5,
     "tradeUnitsPrecision": 0,
     "marginRate": "0.05"
   },
-  "EUR_AUD": {
-    "name": "EUR_AUD",
+  "GBP_JPY": {
+    "name": "GBP_JPY",
     "type": "CURRENCY",
-    "displayName": "EUR/AUD",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.03"
-  },
-  "EUR_SGD": {
-    "name": "EUR_SGD",
-    "type": "CURRENCY",
-    "displayName": "EUR/SGD",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.05"
-  },
-  "NZD_CAD": {
-    "name": "NZD_CAD",
-    "type": "CURRENCY",
-    "displayName": "NZD/CAD",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.03"
-  },
-  "TRY_JPY": {
-    "name": "TRY_JPY",
-    "type": "CURRENCY",
-    "displayName": "TRY/JPY",
-    "pipLocation": -2,
-    "displayPrecision": 3,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.25"
-  },
-  "CAD_HKD": {
-    "name": "CAD_HKD",
-    "type": "CURRENCY",
-    "displayName": "CAD/HKD",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.1"
-  },
-  "USD_CHF": {
-    "name": "USD_CHF",
-    "type": "CURRENCY",
-    "displayName": "USD/CHF",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.04"
-  },
-  "AUD_HKD": {
-    "name": "AUD_HKD",
-    "type": "CURRENCY",
-    "displayName": "AUD/HKD",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.1"
-  },
-  "NZD_CHF": {
-    "name": "NZD_CHF",
-    "type": "CURRENCY",
-    "displayName": "NZD/CHF",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.04"
-  },
-  "AUD_CHF": {
-    "name": "AUD_CHF",
-    "type": "CURRENCY",
-    "displayName": "AUD/CHF",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.04"
-  },
-  "GBP_CHF": {
-    "name": "GBP_CHF",
-    "type": "CURRENCY",
-    "displayName": "GBP/CHF",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.05"
-  },
-  "USD_THB": {
-    "name": "USD_THB",
-    "type": "CURRENCY",
-    "displayName": "USD/THB",
+    "displayName": "GBP/JPY",
     "pipLocation": -2,
     "displayPrecision": 3,
     "tradeUnitsPrecision": 0,
     "marginRate": "0.05"
   },
-  "GBP_CAD": {
-    "name": "GBP_CAD",
+  "USD_TRY": {
+    "name": "USD_TRY",
     "type": "CURRENCY",
-    "displayName": "GBP/CAD",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.05"
-  },
-  "EUR_HKD": {
-    "name": "EUR_HKD",
-    "type": "CURRENCY",
-    "displayName": "EUR/HKD",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.1"
-  },
-  "CHF_JPY": {
-    "name": "CHF_JPY",
-    "type": "CURRENCY",
-    "displayName": "CHF/JPY",
-    "pipLocation": -2,
-    "displayPrecision": 3,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.05"
-  },
-  "GBP_HKD": {
-    "name": "GBP_HKD",
-    "type": "CURRENCY",
-    "displayName": "GBP/HKD",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.1"
-  },
-  "EUR_NZD": {
-    "name": "EUR_NZD",
-    "type": "CURRENCY",
-    "displayName": "EUR/NZD",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.03"
-  },
-  "AUD_SGD": {
-    "name": "AUD_SGD",
-    "type": "CURRENCY",
-    "displayName": "AUD/SGD",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.05"
-  },
-  "EUR_JPY": {
-    "name": "EUR_JPY",
-    "type": "CURRENCY",
-    "displayName": "EUR/JPY",
-    "pipLocation": -2,
-    "displayPrecision": 3,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.05"
-  },
-  "EUR_TRY": {
-    "name": "EUR_TRY",
-    "type": "CURRENCY",
-    "displayName": "EUR/TRY",
+    "displayName": "USD/TRY",
     "pipLocation": -4,
     "displayPrecision": 5,
     "tradeUnitsPrecision": 0,
     "marginRate": "0.25"
   },
-  "USD_JPY": {
-    "name": "USD_JPY",
+  "AUD_JPY": {
+    "name": "AUD_JPY",
     "type": "CURRENCY",
-    "displayName": "USD/JPY",
+    "displayName": "AUD/JPY",
     "pipLocation": -2,
     "displayPrecision": 3,
     "tradeUnitsPrecision": 0,
     "marginRate": "0.05"
+  },
+  "ZAR_JPY": {
+    "name": "ZAR_JPY",
+    "type": "CURRENCY",
+    "displayName": "ZAR/JPY",
+    "pipLocation": -2,
+    "displayPrecision": 3,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.07"
   },
   "SGD_JPY": {
     "name": "SGD_JPY",
@@ -233,23 +143,221 @@
     "tradeUnitsPrecision": 0,
     "marginRate": "0.07"
   },
-  "ZAR_JPY": {
-    "name": "ZAR_JPY",
+  "USD_JPY": {
+    "name": "USD_JPY",
     "type": "CURRENCY",
-    "displayName": "ZAR/JPY",
-    "pipLocation": -2,
-    "displayPrecision": 3,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.07"
-  },
-  "AUD_JPY": {
-    "name": "AUD_JPY",
-    "type": "CURRENCY",
-    "displayName": "AUD/JPY",
+    "displayName": "USD/JPY",
     "pipLocation": -2,
     "displayPrecision": 3,
     "tradeUnitsPrecision": 0,
     "marginRate": "0.05"
+  },
+  "EUR_TRY": {
+    "name": "EUR_TRY",
+    "type": "CURRENCY",
+    "displayName": "EUR/TRY",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.25"
+  },
+  "EUR_JPY": {
+    "name": "EUR_JPY",
+    "type": "CURRENCY",
+    "displayName": "EUR/JPY",
+    "pipLocation": -2,
+    "displayPrecision": 3,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.05"
+  },
+  "AUD_SGD": {
+    "name": "AUD_SGD",
+    "type": "CURRENCY",
+    "displayName": "AUD/SGD",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.05"
+  },
+  "EUR_NZD": {
+    "name": "EUR_NZD",
+    "type": "CURRENCY",
+    "displayName": "EUR/NZD",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.03"
+  },
+  "GBP_HKD": {
+    "name": "GBP_HKD",
+    "type": "CURRENCY",
+    "displayName": "GBP/HKD",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.1"
+  },
+  "CHF_JPY": {
+    "name": "CHF_JPY",
+    "type": "CURRENCY",
+    "displayName": "CHF/JPY",
+    "pipLocation": -2,
+    "displayPrecision": 3,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.05"
+  },
+  "EUR_HKD": {
+    "name": "EUR_HKD",
+    "type": "CURRENCY",
+    "displayName": "EUR/HKD",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.1"
+  },
+  "GBP_CAD": {
+    "name": "GBP_CAD",
+    "type": "CURRENCY",
+    "displayName": "GBP/CAD",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.05"
+  },
+  "USD_THB": {
+    "name": "USD_THB",
+    "type": "CURRENCY",
+    "displayName": "USD/THB",
+    "pipLocation": -2,
+    "displayPrecision": 3,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.05"
+  },
+  "GBP_CHF": {
+    "name": "GBP_CHF",
+    "type": "CURRENCY",
+    "displayName": "GBP/CHF",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.05"
+  },
+  "AUD_CHF": {
+    "name": "AUD_CHF",
+    "type": "CURRENCY",
+    "displayName": "AUD/CHF",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.04"
+  },
+  "NZD_CHF": {
+    "name": "NZD_CHF",
+    "type": "CURRENCY",
+    "displayName": "NZD/CHF",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.04"
+  },
+  "AUD_HKD": {
+    "name": "AUD_HKD",
+    "type": "CURRENCY",
+    "displayName": "AUD/HKD",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.1"
+  },
+  "USD_CHF": {
+    "name": "USD_CHF",
+    "type": "CURRENCY",
+    "displayName": "USD/CHF",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.04"
+  },
+  "CAD_HKD": {
+    "name": "CAD_HKD",
+    "type": "CURRENCY",
+    "displayName": "CAD/HKD",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.1"
+  },
+  "EUR_CHF": {
+    "name": "EUR_CHF",
+    "type": "CURRENCY",
+    "displayName": "EUR/CHF",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.04"
+  },
+  "EUR_SGD": {
+    "name": "EUR_SGD",
+    "type": "CURRENCY",
+    "displayName": "EUR/SGD",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.05"
+  },
+  "NZD_CAD": {
+    "name": "NZD_CAD",
+    "type": "CURRENCY",
+    "displayName": "NZD/CAD",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.03"
+  },
+  "GBP_AUD": {
+    "name": "GBP_AUD",
+    "type": "CURRENCY",
+    "displayName": "GBP/AUD",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.05"
+  },
+  "USD_PLN": {
+    "name": "USD_PLN",
+    "type": "CURRENCY",
+    "displayName": "USD/PLN",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.05"
+  },
+  "EUR_ZAR": {
+    "name": "EUR_ZAR",
+    "type": "CURRENCY",
+    "displayName": "EUR/ZAR",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.07"
+  },
+  "TRY_JPY": {
+    "name": "TRY_JPY",
+    "type": "CURRENCY",
+    "displayName": "TRY/JPY",
+    "pipLocation": -2,
+    "displayPrecision": 3,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.25"
+  },
+  "EUR_AUD": {
+    "name": "EUR_AUD",
+    "type": "CURRENCY",
+    "displayName": "EUR/AUD",
+    "pipLocation": -4,
+    "displayPrecision": 5,
+    "tradeUnitsPrecision": 0,
+    "marginRate": "0.03"
   },
   "USD_ZAR": {
     "name": "USD_ZAR",
@@ -500,114 +608,6 @@
     "displayName": "NZD/JPY",
     "pipLocation": -2,
     "displayPrecision": 3,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.05"
-  },
-  "USD_TRY": {
-    "name": "USD_TRY",
-    "type": "CURRENCY",
-    "displayName": "USD/TRY",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.25"
-  },
-  "GBP_JPY": {
-    "name": "GBP_JPY",
-    "type": "CURRENCY",
-    "displayName": "GBP/JPY",
-    "pipLocation": -2,
-    "displayPrecision": 3,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.05"
-  },
-  "SGD_CHF": {
-    "name": "SGD_CHF",
-    "type": "CURRENCY",
-    "displayName": "SGD/CHF",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.05"
-  },
-  "USD_CNH": {
-    "name": "USD_CNH",
-    "type": "CURRENCY",
-    "displayName": "USD/CNH",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.05"
-  },
-  "USD_NOK": {
-    "name": "USD_NOK",
-    "type": "CURRENCY",
-    "displayName": "USD/NOK",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.07"
-  },
-  "NZD_SGD": {
-    "name": "NZD_SGD",
-    "type": "CURRENCY",
-    "displayName": "NZD/SGD",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.05"
-  },
-  "NZD_USD": {
-    "name": "NZD_USD",
-    "type": "CURRENCY",
-    "displayName": "NZD/USD",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.03"
-  },
-  "USD_CAD": {
-    "name": "USD_CAD",
-    "type": "CURRENCY",
-    "displayName": "USD/CAD",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.02"
-  },
-  "AUD_USD": {
-    "name": "AUD_USD",
-    "type": "CURRENCY",
-    "displayName": "AUD/USD",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.03"
-  },
-  "HKD_JPY": {
-    "name": "HKD_JPY",
-    "type": "CURRENCY",
-    "displayName": "HKD/JPY",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.1"
-  },
-  "EUR_SEK": {
-    "name": "EUR_SEK",
-    "type": "CURRENCY",
-    "displayName": "EUR/SEK",
-    "pipLocation": -4,
-    "displayPrecision": 5,
-    "tradeUnitsPrecision": 0,
-    "marginRate": "0.03"
-  },
-  "USD_SGD": {
-    "name": "USD_SGD",
-    "type": "CURRENCY",
-    "displayName": "USD/SGD",
-    "pipLocation": -4,
-    "displayPrecision": 5,
     "tradeUnitsPrecision": 0,
     "marginRate": "0.05"
   }
