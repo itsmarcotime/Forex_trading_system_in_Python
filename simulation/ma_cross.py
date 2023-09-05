@@ -10,7 +10,7 @@ class MA_Result:
         self.result = self.result_ob()
 
     def __repr__(self):
-        return str(self.result_ob())
+        return str(self.result)
 
     def result_ob(self):
         return dict(
@@ -50,7 +50,7 @@ def get_trades(df_analysis, instrument):
     df_trades.fillna(0, inplace=True)
     df_trades["GAIN"] = df_trades.DIFF / instrument.pipLocation
     df_trades["GAIN"] = df_trades["GAIN"] * df_trades["TRADE"]
-    total_gain = df_trades["GAIN"].sum()
+    
     return df_trades
 
 def assess_pair(price_data, ma_l, ma_s, instrument):
@@ -58,9 +58,18 @@ def assess_pair(price_data, ma_l, ma_s, instrument):
     df_analysis["DELTA"] = df_analysis[ma_s] - df_analysis[ma_l]
     df_analysis["DELTA_PREV"] = df_analysis["DELTA"].shift(1)
     df_analysis["TRADE"] = df_analysis.apply(is_trade, axis=1)
-    #print(instrument.name, ma_l, ma_s)
-    #print(df_analysis.head(3))
-    return get_trades(df_analysis, instrument)
+    df_trades = get_trades(df_analysis, instrument)
+    return MA_Result(
+        df_trades,
+        instrument.name,
+        ma_l,
+        ma_s
+    )
+
+def process_results(results_list):
+    rl = [x.result for x in results_list]
+    df = pd.DataFrame.from_dict(rl)
+    print(df)
 
 def analyse_pair(instrument, granularity, ma_long, ma_short):
 
@@ -71,21 +80,23 @@ def analyse_pair(instrument, granularity, ma_long, ma_short):
     #print(pair)
     #print(price_data.head(3))
 
+    results_list = []
+
     for ma_l in ma_long:
         for ma_s in ma_short:
             if ma_l <= ma_s:
                 continue
 
-            result = assess_pair(
+            ma_result = assess_pair(
                 price_data,
                 get_ma_col(ma_l),
                 get_ma_col(ma_s),
                 instrument
             )
-
-            tg = result["total_gain"]
-            nt = result["df_trades"].shape[0]
-            print(f"{pair} {granularity} {ma_s}-{ma_l} nt:{nt} tg:{tg}")
+            print(ma_result)
+            results_list.append(ma_result)
+    process_results(results_list)
+            
 
 def run_ma_sim(curr_list=["EUR", "USD"],
                 granularity=["H1"],

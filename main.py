@@ -8,4 +8,4 @@ if __name__ == '__main__':
     # instrumentCollection.CreateFile(api.get_instruments(), "./data")
     # instrumentCollection.load_instruments("./data")
     # instrumentCollection.PrintInstruments()
-    run_ma_sim(curr_list=["EUR", "USD", "GBP", "JPY", "AUD"])
+    run_ma_sim(curr_list=["EUR", "USD", "GBP"])
