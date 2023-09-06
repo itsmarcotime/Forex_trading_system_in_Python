@@ -1,4 +1,5 @@
 import pandas as pd
+import os.path
 from infrastructure.instrument_collection import instrumentCollection as ic
 
 class MA_Result:
@@ -63,6 +64,8 @@ def assess_pair(price_data, ma_l, ma_s, instrument, granularity):
     df_analysis["DELTA_PREV"] = df_analysis["DELTA"].shift(1)
     df_analysis["TRADE"] = df_analysis.apply(is_trade, axis=1)
     df_trades = get_trades(df_analysis, instrument, granularity)
+    df_trades["ma_l"] = ma_l
+    df_trades["ma_s"] = ma_s
     return MA_Result(
         df_trades,
         instrument.name,
@@ -71,13 +74,28 @@ def assess_pair(price_data, ma_l, ma_s, instrument, granularity):
         granularity,
     )
 
-def process_results(results_list):
-    rl = [x.result for x in results_list]
-    df = pd.DataFrame.from_dict(rl)
-    print(df)
-    print(results_list[0].df_trades.head(2))
+def append_df_to_file(df, filename):
+    pass 
 
-def analyse_pair(instrument, granularity, ma_long, ma_short):
+def get_fullname(filepath, filename):
+    return f"{filepath}/{filename}.pkl"
+
+def process_macro(results_list, filename):
+    pass
+
+def process_trades(results_list, filename):
+    pass
+
+def process_results(results_list, filepath):
+    process_macro(results_list, get_fullname(filepath, "ma_res"))
+    process_trades(results_list, get_fullname(filepath, "ma_trades"))
+
+    # rl = [x.result for x in results_list]
+    # df = pd.DataFrame.from_dict(rl)
+    # print(df)
+    # print(results_list[0].df_trades.head(2))
+
+def analyse_pair(instrument, granularity, ma_long, ma_short, filepath):
 
     ma_list = set(ma_long + ma_short)
     pair = instrument.name
@@ -102,17 +120,18 @@ def analyse_pair(instrument, granularity, ma_long, ma_short):
             )
             print(ma_result)
             results_list.append(ma_result)
-    process_results(results_list)
+    process_results(results_list, filepath)
             
 
 def run_ma_sim(curr_list=["EUR", "USD"],
                 granularity=["H1", "H4"],
                 ma_long=[20,40,80],
-                ma_short=[10,20]):
+                ma_short=[10,20],
+                filepath="./data"):
     ic.load_instruments("./data")
     for g in granularity:
         for p1 in curr_list:
             for p2 in curr_list:
                 pair = f"{p1}_{p2}"
                 if pair in ic.instruments_dict.keys():
-                    analyse_pair(ic.instruments_dict[pair], g, ma_long, ma_short)
+                    analyse_pair(ic.instruments_dict[pair], g, ma_long, ma_short, filepath)
