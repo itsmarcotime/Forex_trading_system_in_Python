@@ -1,5 +1,13 @@
 import pandas as pd 
 
+def add_pair_charts(df_ma_res, df_ma_trades, writer):
+    cols = ['time', 'GAIN_C']
+    df_temp = df_ma_res.drop_duplicates(subset="pair")
+
+    for _, row in df_temp.iterrows():
+        dft = df_ma_trades[(df_ma_trades.cross == row.cross)&(df_ma_trades.pair == row.pair)]
+        dft[cols].to_excel(writer, sheet_name=row.pair, index=False, startrow=0, startcol=11)
+
 def add_pair_sheets(df_ma_res, writer):
     for p in df_ma_res.pair.unique():
         tdf= df_ma_res[df_ma_res.pair == p]
@@ -13,6 +21,7 @@ def prepare_data(df_ma_res, df_ma_trades):
 def process_data(df_ma_res, df_ma_trades, writer):
     prepare_data(df_ma_res, df_ma_trades)
     add_pair_sheets(df_ma_res, writer)
+    add_pair_charts(df_ma_res, df_ma_trades, writer)
 
 def create_excel(df_ma_res, df_ma_trades, granularity):
     filename = f"ma_sim_{granularity}.xlsx"
