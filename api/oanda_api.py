@@ -4,7 +4,7 @@ import constants.defs as defs
 from dateutil import parser
 from datetime import datetime as dt
 
-class oanda_api:
+class OandaApi:
 
     def __init__(self):
         self.session = requests.Session()
