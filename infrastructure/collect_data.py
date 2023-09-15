@@ -22,4 +22,11 @@ def collect_data(pair, granularity, date_f, date_t, file_prefix, api: OandaApi):
     pass
 
 def run_collection(ic: InstrumentCollection, api: OandaApi):
-    pass
+    our_curr = ["EUR", "GBP", "AUD"]
+    for p1 in our_curr:
+        for p2 in our_curr:
+            pair = f"{p1}_{p2}"
+            if pair in ic.instruments_dict.keys():
+                for g in ["H1"]:
+                    print(pair, g)
+                    collect_data(pair, g, "2021-10-01T00:00:00Z", "2021-12-01T00:00:00Z", "./data/", api)
