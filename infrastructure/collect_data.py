@@ -4,7 +4,7 @@ from dateutil import parser
 from infrastructure.instrument_collection import InstrumentCollection
 from api.oanda_api import OandaApi
 
-CANDLE_COUNT = 200
+CANDLE_COUNT = 3000
 
 INCREMENTS = {
     'M5' : 5 * CANDLE_COUNT,
@@ -13,7 +13,15 @@ INCREMENTS = {
 }
 
 def save_file(final_df: pd.DataFrame, file_prefix, granularity, pair):
-    pass
+    filename = f"{file_prefix}{pair}_{granularity}.pkl"
+
+    final_df.drop_duplicates(subset=['time'], inplace=True)
+    final_df.sort_values(by='time', inplace=True)
+    final_df.reset_index(drop=True, inplace=True)
+    final_df.to_pickle(filename)
+
+    print(f"*** {pair} {granularity} {final_df.time.min()} {final_df.time.max()} --> {final_df.shape[0]} candles ***")
+
 
 def fetch_candles(pair, granularity, date_f: dt.datetime, date_t: dt.datetime, api: OandaApi):
 
@@ -68,11 +76,11 @@ def collect_data(pair, granularity, date_f, date_t, file_prefix, api: OandaApi):
 
 
 def run_collection(ic: InstrumentCollection, api: OandaApi):
-    our_curr = ["EUR", "GBP", "AUD"]
+    our_curr = ["AUD", "CAD", "JPY", "USD", "EUR", "GBP", "NZD"]
     for p1 in our_curr:
         for p2 in our_curr:
             pair = f"{p1}_{p2}"
             if pair in ic.instruments_dict.keys():
-                for g in ["M5"]:
+                for g in ["M5", "H1", "H4"]:
                     print(pair, g)
-                    collect_data(pair, g, "2021-10-07T00:00:00Z", "2021-10-12T00:00:00Z", "./data/", api)
+                    collect_data(pair, g, "2016-01-07T00:00:00Z", "2021-12-31T00:00:00Z", "./data/", api)
