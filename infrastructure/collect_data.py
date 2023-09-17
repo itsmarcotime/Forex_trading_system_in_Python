@@ -4,7 +4,7 @@ from dateutil import parser
 from infrastructure.instrument_collection import InstrumentCollection
 from api.oanda_api import OandaApi
 
-CANDLE_COUNT = 3000
+CANDLE_COUNT = 200
 
 INCREMENTS = {
     'M5' : 5 * CANDLE_COUNT,
@@ -16,6 +16,22 @@ def save_file(final_df: pd.DataFrame, file_prefix, granularity, pair):
     pass
 
 def fetch_candles(pair, granularity, date_f: dt.datetime, date_t: dt.datetime, api: OandaApi):
+
+    attempts = 0
+
+    while attempts < 3:
+        candles_df = api.get_candles_df(pair, granularity=granularity, date_f=date_f, date_t=date_t)
+
+        if candles_df is not None:
+            break
+
+        attempts += 1
+
+    if candles_df is not None and candles_df.empty == False:
+        return candles_df
+    else:
+        return None
+
     return None
 
 def collect_data(pair, granularity, date_f, date_t, file_prefix, api: OandaApi):
@@ -36,8 +52,9 @@ def collect_data(pair, granularity, date_f, date_t, file_prefix, api: OandaApi):
 
         candles = fetch_candles(pair, granularity, from_date, to_date, api)
 
-        if candles is not None and candles.empty == False:
+        if candles is not None:
             candle_dfs.append(candles)
+            print(f"{pair} {granularity} {from_date} {to_date} --> {candles.shape[0]} candles loaded.")
         else:
             print(f"{pair} {granularity} {from_date} {to_date} --> NO CANDLES")
 
@@ -58,4 +75,4 @@ def run_collection(ic: InstrumentCollection, api: OandaApi):
             if pair in ic.instruments_dict.keys():
                 for g in ["M5"]:
                     print(pair, g)
-                    collect_data(pair, g, "2021-06-01T00:00:00Z", "2021-12-01T00:00:00Z", "./data/", api)
+                    collect_data(pair, g, "2021-10-07T00:00:00Z", "2021-10-12T00:00:00Z", "./data/", api)
