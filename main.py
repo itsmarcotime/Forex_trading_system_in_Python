@@ -5,6 +5,7 @@ from dateutil import parser
 from infrastructure.collect_data import run_collection
 
 if __name__ == '__main__':
-    api = OandaApi()
-    instrumentCollection.load_instruments("./data")
-    run_collection(instrumentCollection, api)
+    # api = OandaApi()
+    # instrumentCollection.load_instruments("./data")
+    # run_collection(instrumentCollection, api)
+    run_ma_sim()

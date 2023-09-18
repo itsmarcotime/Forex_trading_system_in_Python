@@ -76,7 +76,7 @@ def collect_data(pair, granularity, date_f, date_t, file_prefix, api: OandaApi):
 
 
 def run_collection(ic: InstrumentCollection, api: OandaApi):
-    our_curr = ["AUD", "CAD", "JPY", "USD", "EUR", "GBP", "NZD"]
+    our_curr = ["CAD", "JPY", "USD", "EUR", "GBP", "NZD"]
     for p1 in our_curr:
         for p2 in our_curr:
             pair = f"{p1}_{p2}"
