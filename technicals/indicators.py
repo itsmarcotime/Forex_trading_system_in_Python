@@ -17,3 +17,11 @@ def ATR(df: pd.DataFrame, n=14):
     tr = pd.DataFrame({'tr1': tr1, 'tr2': tr2, 'tr3': tr3}).max(axis=1)
     df['ATR'] = tr.rolling(window=n).mean()
     return df
+
+def KelterChannels(df: pd.DataFrame, n_ema=20, n_atr=10):
+    df['EMA'] = df.mid_c.ewm(span=n_ema, min_periods=n_ema).mean()
+    df = ATR(df, n=n_atr)
+    df['keUp'] = df.ATR * 2 + df.EMA
+    df['keLo'] = df.EMA - df.ATR * 2
+    df.drop('ATR', axis=1, inplace=True)
+    return df
