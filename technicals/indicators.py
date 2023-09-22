@@ -41,3 +41,13 @@ def RSI(df: pd.DataFrame, n=14):
 
     df[f'RSI_{n}'] = 100.0 - (100.0 / (1.0 + rs))
     return df
+
+def MACD(df: pd.DataFrame, n_slow=26, n_fast=12, n_signal=9):
+    ema_long = df.mid_c.ewm(min_periods=n_slow, span=n_slow).mean()
+    ema_short = df.mid_c.ewm(min_periods=n_fast, span=n_fast).mean()
+
+    df['MACD'] = ema_short - ema_long
+    df['SIGNAL'] = df.MACD.ewm(min_periods=n_signal, span=n_signal).mean()
+    df['HIST'] = df.MACD - df.SIGNAL
+
+    return df
