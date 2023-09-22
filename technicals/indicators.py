@@ -15,13 +15,29 @@ def ATR(df: pd.DataFrame, n=14):
     tr3 = abs(prev_c - df.mid_l)
 
     tr = pd.DataFrame({'tr1': tr1, 'tr2': tr2, 'tr3': tr3}).max(axis=1)
-    df['ATR'] = tr.rolling(window=n).mean()
+    df[f'ATR_{n}'] = tr.rolling(window=n).mean()
     return df
 
 def KelterChannels(df: pd.DataFrame, n_ema=20, n_atr=10):
     df['EMA'] = df.mid_c.ewm(span=n_ema, min_periods=n_ema).mean()
     df = ATR(df, n=n_atr)
-    df['keUp'] = df.ATR * 2 + df.EMA
-    df['keLo'] = df.EMA - df.ATR * 2
-    df.drop('ATR', axis=1, inplace=True)
+    c_atr = f'ATR_{n_atr}'
+    df['keUp'] = df[c_atr] * 2 + df.EMA
+    df['keLo'] = df.EMA - df[c_atr] * 2
+    df.drop(c_atr, axis=1, inplace=True)
+    return df
+
+def RSI(df: pd.DataFrame, n=14):
+    alpha = 1.0 / n
+    gains = df.mid_c.diff()
+
+    wins = pd.Series([x if x >= 0 else 0.0 for x in gains], name='wins')
+    losses = pd.Series([x * -1 if x < 0 else 0.0 for x in gains], name='losses')
+
+    wins_rma = wins.ewm(min_periods=n, alpha=alpha).mean()
+    losses_rma = losses.ewm(min_periods=n, alpha=alpha).mean()
+
+    rs = wins_rma / losses_rma
+
+    df[f'RSI_{n}'] = 100.0 - (100.0 / (1.0 + rs))
     return df
