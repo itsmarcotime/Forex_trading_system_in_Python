@@ -17,6 +17,8 @@ def apply_candle_props(df: pd.DataFrame):
     df_an['body_bottom_perc'] = body_bottom_perc
     df_an['body_top_perc'] = body_top_perc
     df_an['body_perc'] = body_perc
+    df_an['direction'] = direction
+    df_an['body_size'] = body_size
 
     return df_an
 
