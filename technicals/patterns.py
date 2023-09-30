@@ -12,6 +12,10 @@ def apply_candle_props(df: pd.DataFrame):
     body_bottom_perc = ((body_lower - df_an.mid_l) / full_range) * 100
     body_top_perc = 100 - (((df_an.mid_h - body_upper) / full_range) * 100)
 
+    low_change = df_an.mid_l.pct_change() * 100
+    high_change = df_an.mid_h.pct_change() * 100
+    body_size_change = body_size.pct_change() * 100
+
     df_an['body_lower'] = body_lower
     df_an['body_upper'] = body_upper
     df_an['body_bottom_perc'] = body_bottom_perc
@@ -19,6 +23,9 @@ def apply_candle_props(df: pd.DataFrame):
     df_an['body_perc'] = body_perc
     df_an['direction'] = direction
     df_an['body_size'] = body_size
+    df_an['low_change'] = low_change
+    df_an['high_change'] = high_change
+    df_an['body_size_change'] = body_size_change
 
     return df_an
 
