@@ -18,7 +18,7 @@ def apply_signal(row):
     return NONE 
 
 def apply_cross(row):
-    if row.macd_delta > 0 and row.mad_delta_prev < 0:
+    if row.macd_delta > 0 and row.macd_delta_prev < 0:
         return BUY
     if row.macd_delta < 0 and row.macd_delta_prev > 0:
         return SELL
@@ -31,11 +31,11 @@ def prepare_data(df: pd.DataFrame, slow, fast, signal, ema):
     df_an['macd_delta_prev'] = df_an.macd_delta.shift(1)
     df_an['direction'] = df_an.apply(apply_cross, axis=1)
     df_an['EMA'] = df_an.mid_c.ewm(span=ema, min_periods=ema).mean()
-    df_an.dropna(drop=True, inplace=True)
+    df_an.dropna(inplace=True)
     return df_an
 
 def load_data(pair, time_d=1):
-    start = parser.parse("2020-10-01T00:00:00Z")
+    start = parser.parse("2020-11-01T00:00:00Z")
     end = parser.parse("2021-01-01T00:00:00Z")
 
     df = pd.read_pickle(f"./data/{pair}_H{time_d}.pkl")
@@ -83,28 +83,14 @@ def run_pair(pair):
                     trades.append(sim_res_df)
                     print(f"--> {pair} {slow} {fast} {ema} {signal} {r}")
                     results.append(dict(pair=pair, slow=slow, fast=fast, ema=ema, results=r, signal=signal))
-    pd.concat(trades).to_pickle(f"./exploration/macd_ema/macd_ema_trades_{pair}.pkl")
+    pd.concat(trades).to_pickle(f"./data/macd_ema_trades_{pair}.pkl")
     return pd.DataFrame.from_dict(results)
 
-def run_ema_macd(ic: InstrumentCollection):
-    results = []
-    our_curr = ['USD', 'GBP', 'JPY', 'NZD']
-    for p1 in our_curr:
-        for p2 in our_curr:
-            pair = f"{p1}_{p2}"
-            if pair in ic.instruments_dict.keys():
-                results = run_pair(pair)
-                results.to_pickle(f"./exploration/macd_ema/macd_ema_res_{pair}.pkl")
-
-import time
-import random
-
-def run_process(name):
-    print("PROCESS", name, "STARED")
-
-    time.sleep(random.randint(3, 8))
-
-    print("PROCESS", name, "ENDED")
+def run_process(pair):
+    print("PROCESS", pair, "STARED")
+    results = run_pair(pair)
+    results.to_pickle(f"./data/macd_ema_res_{pair}.pkl")
+    print("PROCESS", pair, "ENDED")
 
 def get_sim_pairs(l_curr, ic: InstrumentCollection):
     pairs = []
@@ -116,15 +102,13 @@ def get_sim_pairs(l_curr, ic: InstrumentCollection):
                 pairs.append(pair)
     return pairs
 
-def run_processes(ic: InstrumentCollection):
+def run_ema_macd(ic: InstrumentCollection):
     pairs = get_sim_pairs(['USD', 'GBP', 'JPY', 'NZD', 'AUD', 'CAD'], ic) 
 
     limit = 4
     current = 0
 
     while current < len(pairs):
-        print("\n NEW LOOP", len(pairs))
-        print("current", current)
 
         processes = []
         todo = len(pairs) - current
