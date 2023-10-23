@@ -9,4 +9,4 @@ if __name__ == '__main__':
     instrumentCollection.load_instruments("./data")
     # run_collection(instrumentCollection, api)
     # run_ma_sim()
-    run_processes()
+    run_processes(instrumentCollection)
