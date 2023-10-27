@@ -6,7 +6,6 @@ SELL = -1
 NONE = 0
 
 
-
 def apply_take_profit(row, PROFIT_FACTOR):
     if row.SIGNAL != NONE:
         if row.SIGNAL == BUY:
