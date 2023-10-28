@@ -1,8 +1,11 @@
 import requests
 import pandas as pd
+import json
 import constants.defs as defs
 from dateutil import parser
 from datetime import datetime as dt
+from infrastructure.instrument_collection import instrumentCollection as ic
+
 
 class OandaApi:
 
@@ -15,11 +18,17 @@ class OandaApi:
     
     def make_request(self, url, verb='get', code=200, params=None, data=None, headers=None):
         full_url = f'{defs.OANDA_URL}/{url}'
+
+        if data is not None:
+            data = json.dumps(data)
         
         try:
             response = None
             if verb == "get":
                 response = self.session.get(full_url, params=params, data=data, headers=headers)
+            
+            if verb == "post":
+                response = self.session.post(full_url, params=params, data=data, headers=headers)
             
             if response == None:
                 return False, {'error': 'verb not found'}
@@ -97,3 +106,24 @@ class OandaApi:
 
         df = pd.DataFrame.from_dict(final_data)
         return df
+    
+    def place_trade(self, pair_name: str, units: float, direction: int, stop_loss:float=None, take_profit: float=None):
+
+        url = f"accounts/{defs.ACCOUNT_ID}/orders"
+
+        instrument = ic.instruments_dict[pair_name]
+        units = round(units, instrument.tradeUnitsPrecision)
+
+        data = dict(
+            order=dict(
+                units=str(units),
+                instrument=pair_name,
+                type="MARKET"
+            )
+        )
+
+        print(data)
+
+        ok, response = self.make_request(url, verb="post", data=data, code=201)
+
+        print(ok, response)
