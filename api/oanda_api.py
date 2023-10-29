@@ -114,6 +114,10 @@ class OandaApi:
         instrument = ic.instruments_dict[pair_name]
         units = round(units, instrument.tradeUnitsPrecision)
 
+        if direction == defs.SELL:
+            units = units * -1
+
+
         data = dict(
             order=dict(
                 units=str(units),

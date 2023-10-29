@@ -10,3 +10,7 @@ private_url = os.getenv("OANDA_URL")
 API_KEY = private_api
 ACCOUNT_ID = private_account
 OANDA_URL = private_url
+
+SELL = -1
+BUY = 1
+NONE = 0
