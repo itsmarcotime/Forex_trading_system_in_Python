@@ -126,6 +126,14 @@ class OandaApi:
             )
         )
 
+        if stop_loss is not None:
+            sld = dict(price=str(round(stop_loss, instrument.displayPrecision)))
+            data['order']['stopLossOnFill'] = sld
+
+        if take_profit is not None:
+            tpd = dict(price=str(round(take_profit, instrument.displayPrecision)))
+            data['order']['takeProfitOnFill'] = tpd
+
         print(data)
 
         ok, response = self.make_request(url, verb="post", data=data, code=201)
