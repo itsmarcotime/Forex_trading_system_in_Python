@@ -29,6 +29,9 @@ class OandaApi:
             
             if verb == "post":
                 response = self.session.post(full_url, params=params, data=data, headers=headers)
+
+            if verb == "put":
+                response = self.session.put(full_url, params=params, data=data, headers=headers)
             
             if response == None:
                 return False, {'error': 'verb not found'}
@@ -134,8 +137,24 @@ class OandaApi:
             tpd = dict(price=str(round(take_profit, instrument.displayPrecision)))
             data['order']['takeProfitOnFill'] = tpd
 
-        print(data)
+        #print(data)
 
         ok, response = self.make_request(url, verb="post", data=data, code=201)
 
-        print(ok, response)
+        #print(ok, response)
+
+        if ok == True and 'orderFilltransaction' in response:
+            return response['orderFilltransaction']['id']
+        else:
+            return None
+        
+    def close_trade(self, trade_id):
+        url = f"accounts/{defs.ACCOUNT_ID}/trades/{trade_id}/close"
+        ok, _ = self.make_request(url, verb='put', code=200)
+
+        if ok == True:
+            print(f"closed {trade_id} successfully")
+        else:
+            print(f"Failed to close {trade_id}")
+
+        return ok
