@@ -1,0 +1,16 @@
+{
+    "GBP_CHF": {
+        "n_ma": 20,
+        "n_std": 2.5,
+        "maxspread": 0.0004,
+        "mingain": 0.0014,
+        "riskreward": 1.3
+    },
+    "EUR_CHF": {
+        "n_ma": 10,
+        "n_std": 1.5,
+        "maxspread": 0.0004,
+        "mingain": 0.0014,
+        "riskreward": 1.3
+    }
+}
