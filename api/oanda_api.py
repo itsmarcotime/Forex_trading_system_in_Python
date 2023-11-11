@@ -111,6 +111,12 @@ class OandaApi:
         df = pd.DataFrame.from_dict(final_data)
         return df
     
+    def last_complete_candle(self, pair_name, granularity):
+        df = self.get_candles_df(pair_name, granularity=granularity, count=10)
+        if df.shape[0] == 0:
+            return None
+        return df.iloc[-1].time
+    
     def place_trade(self, pair_name: str, units: float, direction: int, stop_loss:float=None, take_profit: float=None):
 
         url = f"accounts/{defs.ACCOUNT_ID}/orders"
