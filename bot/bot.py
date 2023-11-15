@@ -1,15 +1,22 @@
 import json
 from infrastructure.log_wrapper import LogWrapper
 from models.trade_setting import TradeSettings
+from api.oanda_api import OandaApi
+from bot.candle_manager import CandleManager
 
 class Bot:
 
     ERROR_LOG = "error"
     MAIN_LOG = "main"
+    GRANULARITY = "M5"
 
     def __init__(self):
         self.load_settings()
         self.setup_logs()
+
+        self.api = OandaApi()
+        self.candle_manager = CandleManager(self.api, self.trade_settings, self.log_message, Bot.GRANULARITY)
+
         self.log_to_main("Bot Started")
         self.log_to_error("Bot Started")
 
