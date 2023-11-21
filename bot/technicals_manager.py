@@ -1,18 +1,31 @@
 import pandas as pd
 pd.set_option('display.max_columns', None)
 pd.set_option('expand_frame_repr', None)
+from technicals.indicators import BollingerBands
 from api.oanda_api import OandaApi
 from models.trade_setting import TradeSettings
+import constants.defs as defs
 
 ADDROWS = 20
+
+def apply_signal(row, trade_settings: TradeSettings):
+    if row.SPREAD <= trade_settings.maxspread:
+        if row.mid_c > row.BB_UP and row.mid_o < row.BB_UP:
+            return defs.SELL
+        elif row.mid_c < row.BB_LW and row.mid_o > row.BB_LW:
+            return defs.BUY
+    return defs.NONE
 
 def process_candles(df: pd.DataFrame, pair, trade_settings: TradeSettings, log_message):
     df.reset_index(drop=True, inplace=True)
     df['PAIR'] = pair
     df['SPREAD'] = df.ask_c - df.bid_c
 
-    # make indicator
-    log_cols = ['PAIR', 'time', 'mid_c', 'mid_o', 'SPREAD']
+    df = BollingerBands(df, trade_settings.n_ma, trade_settings.n_std)
+    df['SIGNAL'] = df.apply(apply_signal, axis=1, trade_settings=trade_settings)
+    df['GAIN'] = abs(df.mid_c - df.BB_MA)
+
+    log_cols = ['PAIR', 'time', 'mid_c', 'mid_o', 'SPREAD', 'GAIN', 'SIGNAL']
     log_message(f"process_candles:\n{df[log_cols].tail()}", pair)
 
 def fetch_candles(pair, row_count, candle_time, granularity, api: OandaApi, log_message):
