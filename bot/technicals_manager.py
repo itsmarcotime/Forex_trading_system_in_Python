@@ -6,6 +6,15 @@ from models.trade_setting import TradeSettings
 
 ADDROWS = 20
 
+def process_candles(df: pd.DataFrame, pair, trade_settings: TradeSettings, log_message):
+    df.reset_index(drop=True, inplace=True)
+    df['PAIR'] = pair
+    df['SPREAD'] = df.ask_c - df.bid_c
+
+    # make indicator
+    log_cols = ['PAIR', 'time', 'mid_c', 'mid_o', 'SPREAD']
+    log_message(f"process_candles:\n{df[log_cols].tail()}", pair)
+
 def fetch_candles(pair, row_count, candle_time, granularity, api: OandaApi, log_message):
     df = api.get_candles_df(pair, count=row_count, granularity=granularity)
 
@@ -28,6 +37,6 @@ def get_trade_decision(candle_time, pair, granularity, api: OandaApi, trade_sett
     df = fetch_candles(pair, max_rows, candle_time, granularity, api, log_message)
 
     if df is not None:
-        log_message(f"\n{df.tail()}", pair)
+        process_candles(df, pair, trade_settings, log_message)
 
     return None
