@@ -8,12 +8,12 @@ created by Marco Mata
 5. [Questions](#questions)
 
 ## Description
-<h1 align="center">Welcome :shipit:</h1> 
+<h1 align="center">Welcome. :shipit:</h1> 
 
 
 
 <p>
-    This application is a robust trading system currently build for backtesting trading data by using trading strategies coded from scratch into the application. Current str 
+    The Python Forex Trading System is a robust python based event driven and live trading application for backtesting trading data by using trading strategies coded from scratch into the program itself. Current str 
 </p>
 
 
@@ -21,7 +21,7 @@ created by Marco Mata
 This application has been build heavily on Python3 as well as many other packages that are included in the python library such as Pandas, Plotly, and Datetime. Another important tool used to build the application was Jupyter Notebook. 
 
 ## Contribution
-
+I intend for the code to this application to be completey open sourced here on GitHub. If you discover a bug or have an enhancement in mind, please don't hesitate to open an issue. Once approved, fork the application over onto your local machine and create a pull request when finished. Your input and insight is greatly appreciated.
 
 ## Questions
 Questions? <br /> 
