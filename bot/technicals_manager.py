@@ -16,6 +16,22 @@ def apply_signal(row, trade_settings: TradeSettings):
             return defs.BUY
     return defs.NONE
 
+def apply_SL(row, trade_settings: TradeSettings):
+    if row.SIGNAL == defs.BUY:
+        return row.mid_c - (row.GAIN / trade_settings.riskreward)
+    elif row.SIGNAL == defs.SELL:
+        return row.mid_c + (row.GAIN / trade_settings.riskreward)
+    
+    return 0.0
+
+def apply_TP(row):
+    if row.SIGNAL == defs.BUY:
+        return row.mid_c + row.GAIN
+    elif row.SIGNAL == defs.SELL:
+        return row.mid_c - row.GAIN
+    
+    return 0.0
+
 def process_candles(df: pd.DataFrame, pair, trade_settings: TradeSettings, log_message):
     df.reset_index(drop=True, inplace=True)
     df['PAIR'] = pair
@@ -24,9 +40,13 @@ def process_candles(df: pd.DataFrame, pair, trade_settings: TradeSettings, log_m
     df = BollingerBands(df, trade_settings.n_ma, trade_settings.n_std)
     df['SIGNAL'] = df.apply(apply_signal, axis=1, trade_settings=trade_settings)
     df['GAIN'] = abs(df.mid_c - df.BB_MA)
+    df['TP'] = df.apply(apply_TP, axis=1)
+    df['SL'] = df.apply(apply_SL, axis=1, trade_settings=trade_settings)
 
-    log_cols = ['PAIR', 'time', 'mid_c', 'mid_o', 'SPREAD', 'GAIN', 'SIGNAL']
+    log_cols = ['PAIR', 'time', 'mid_c', 'mid_o', 'SL', 'TP', 'SPREAD', 'GAIN', 'SIGNAL']
     log_message(f"process_candles:\n{df[log_cols].tail()}", pair)
+
+    return df[log_cols].iloc[-1]
 
 def fetch_candles(pair, row_count, candle_time, granularity, api: OandaApi, log_message):
     df = api.get_candles_df(pair, count=row_count, granularity=granularity)
@@ -50,6 +70,8 @@ def get_trade_decision(candle_time, pair, granularity, api: OandaApi, trade_sett
     df = fetch_candles(pair, max_rows, candle_time, granularity, api, log_message)
 
     if df is not None:
-        process_candles(df, pair, trade_settings, log_message)
+        last_row = process_candles(df, pair, trade_settings, log_message)
+        if last_row.SIGNAL != defs.NONE:
+            log_message(f"SIGNAL:{last_row}\n", pair)
 
     return None

@@ -10,14 +10,10 @@ Built by Marco Mata
 ## Description
 <h1 align="center">Welcome. :shipit:</h1> 
 
-<h1 align="center">
-    ![image](https://github.com/itsmarcotime/Forex_trading_system_in_Python/assets/101440634/754accf7-842c-4092-8426-dd3811dfcd74)
-</h1> 
 
-// talk about Oanda api and how we retrieved the data for backtests
-// talk about set up and how to get things running?
-// talk about trading stratgies used
-// add disclamer at the end
+![image](https://github.com/itsmarcotime/Forex_trading_system_in_Python/assets/101440634/754accf7-842c-4092-8426-dd3811dfcd74)
+
+
 
 <p>
     The Python Forex Trading System is a robust python based event driven and live trading application for backtesting forex trading data from a Demo Oanda API using trading strategies coded from scratch into the program itself. Requirements to run the code are, of course, you must have Python3 installed on your local machine, an IDE of your choosing (I personally use VScode but there are many other options), and an Oanda account which I will go over in the 'Environment Setup' below.
@@ -29,12 +25,12 @@ Built by Marco Mata
 
 ![image](https://github.com/itsmarcotime/Forex_trading_system_in_Python/assets/101440634/158e8a3a-df9d-43ae-8a53-6aaaa86ce7df)
 
-<p>
-    Once you are in the demo mode environment you will need to generate an Oanda API key. At the top in the same navigation bar you found the 'demo mode' button you will also find a button named 'Tools' click on it and generate an API key yourself. DO NOT show this key to anyone else as it is your own personal api key that will go into your .env file to retrieve your own personal data. Create a '.env' in the root directory of the project and set you the api key like this:<br />
-    ```
-        API_KEY='YOUR_API_KEY_HERE'
-    ```
-</p>
+
+Once you are in the demo mode environment you will need to generate an Oanda API key. At the top in the same navigation bar you found the 'demo mode' button you will also find a button named 'Tools' click on it and generate an API key yourself. DO NOT show this key to anyone else as it is your own personal api key that will go into your .env file to retrieve your own personal data. Create a '.env' in the root directory of the project and set you the api key like this:<br />
+```
+    API_KEY='YOUR_API_KEY_HERE'
+```
+
 
 
 
