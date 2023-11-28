@@ -15,6 +15,7 @@ Built by Marco Mata
 
 
 
+
 <p>
     The Python Forex Trading System is a robust python based event driven and live trading application for backtesting forex trading data from a Demo Oanda API using trading strategies coded from scratch into the program itself. Requirements to run the code are, of course, you must have Python3 installed on your local machine, an IDE of your choosing (I personally use VScode but there are many other options), and an Oanda account which I will go over in the 'Environment Setup' below.
 </p><br />
