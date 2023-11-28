@@ -26,14 +26,29 @@ Built by Marco Mata
 
 ![image](https://github.com/itsmarcotime/Forex_trading_system_in_Python/assets/101440634/158e8a3a-df9d-43ae-8a53-6aaaa86ce7df)
 
-
-Once you are in the demo mode environment you will need to generate an Oanda API key. At the top in the same navigation bar you found the 'demo mode' button you will also find a button named 'Tools' click on it and generate an API key yourself. DO NOT show this key to anyone else as it is your own personal api key that will go into your .env file to retrieve your own personal data. Create a '.env' in the root directory of the project and set you the api key like this:<br />
+<p>
+    Once you are in the demo mode environment you will need to generate an Oanda API key. At the top of the Oanda webpage in the same navigation bar you found the 'demo mode' button you will also find a button named 'Tools' click on it and generate an API key yourself. DO NOT show this key to anyone else as it is your own personal api key that will go into your .env file to retrieve your own personal data. Now, create a '.env' in the root directory of the project and set up your api key like this:
+</p><br />
 ```
     API_KEY='YOUR_API_KEY_HERE'
 ```
+<br />
+<p>
+    Make sure to replace the 'YOUR_API_KEY_HERE' text with your own personally generated API key from Oanda. Next, we will need to locate your demo account ID. This part won't be that hard. Navigate back to the Oanda home page and login if you have not done so. Again, make sure that you are in the 'Demo mode' version of your Oanda account. WARNING: If you use your LIVE primary account ID you could accidently place live trades so be sure you are in Demo Mode. Once prompted to the home page of demo mode Oanda should automatically displace the dashboard with all of its different features. You want to look on the left hand side of the page for an "Accounts" option. Click on it.
+</p>
 
+![OANDA Hub (1)](https://github.com/itsmarcotime/Forex_trading_system_in_Python/assets/101440634/fcc0dea8-3b89-4b1c-a731-4a3b0d547049)
 
-
+<p>
+    As shown in the image above, we are inside the 'Accounts' tab on the left side. You will find your demo account ID under the "Primary" title as circled in red on the image above. Copy the account Id number and head on back to your .env file. Directly under where you set up your api key place your acount Id in a similar fashion like so:
+</p><br />
+```
+    ACCOUNT_ID='YOUR_ACCOUNT_ID_HERE'
+```
+<br />
+<p>
+    Now all you need for the .env is the oanda url. You will be using this to retrieve all your data for testing from the oanda API. 
+</p>
 
 ## Built-with
 This application has been build heavily on Python3 as well as many other packages that are included in the python library such as Pandas, Plotly, and Datetime. Another important tool used to build the application was Jupyter Notebook. 
