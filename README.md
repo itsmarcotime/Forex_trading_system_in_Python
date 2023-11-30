@@ -10,9 +10,7 @@ Built by Marco Mata
 ## Description
 <h1 align="center">Welcome. :shipit:</h1> 
 
-![image](https://github.com/itsmarcotime/Forex_trading_system_in_Python/assets/101440634/7da0e0ad-402b-4afa-b8b6-62a2537af48c)
-
-
+![image](https://github.com/itsmarcotime/Forex_trading_system_in_Python/assets/101440634/f1491383-0ea3-4972-818a-ea4a7e5841d7)
 
 
 <p>
