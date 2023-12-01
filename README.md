@@ -12,7 +12,6 @@ Built by Marco Mata
 
 ![image](https://github.com/itsmarcotime/Forex_trading_system_in_Python/assets/101440634/f1491383-0ea3-4972-818a-ea4a7e5841d7)
 
-
 <p>
     The Python Forex Trading System is a robust python based event driven and live trading application for backtesting forex trading data from a Demo Oanda API using trading strategies coded from scratch into the program itself. Requirements to run the code are, of course, you must have Python3 installed on your local machine, an IDE of your choosing (I personally use VScode but there are many other options), and an Oanda account which I will go over in the 'Environment Setup' below.
 </p>
@@ -46,8 +45,18 @@ As shown in the image above, we are inside the 'Accounts' tab on the left side. 
 ```
 
 <br />
-Now all you need for the .env is the a oanda url. The url I will provide in this readme is used to retrieve all your data for the TESTING purposes. 
+Now, all you need for the .env is the a oanda url. The url provided in this readme is used to retrieve all your data for TESTING purposes. I will not provide the url for live trading data in this readme for the safety of the user. However, if you really understand what is going on I highly recommend you look through Oanda documention for the live url. The practive url will go into your .env like so:
 
+```
+    OANDA_URL=https://api-fxpractice.oanda.com/v3
+```
+
+<br />
+Thats it! You're ready to start backtesting your strategies on years worth of trading data. Happy Trading!
+
+<h3 align="center">**DISCLAIMER**</h3><br />
+
+This is a tool. Not the holy grail. Everything you will find in this repository is for educational purposes only, and is NOT any type of investment advise whatsoever. Any live trading done by a user with the code from this repository is the USER'S responsibility. This trading system is made purely for educational purposes to practice with historical data, and should not be used to make any final finacial decisions.
 
 ## Built-with
 This application has been build heavily on Python3 as well as many other packages that are included in the python library such as Pandas, Plotly, and Datetime. Another important tool used to build the application was Jupyter Notebook. 
