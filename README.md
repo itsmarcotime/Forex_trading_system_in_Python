@@ -3,8 +3,8 @@ Built by Marco Mata
 
 ## Table of Contents
 1. [Description](#description)
-2. [Built-with](#built-with)
-3. [Contribution](#contribution)
+2. [Contribution](#contribution)
+3. [Built-with](#built-with)
 5. [Questions](#questions)
 
 ## Description
@@ -58,11 +58,11 @@ Thats it! You're ready to start backtesting your strategies on years worth of tr
 
 This is a tool. Not the holy grail. Everything you will find in this repository is for educational purposes only, and is NOT any type of investment advise whatsoever. Any live trading done by a user with the code from this repository is the USER'S responsibility. This trading system is made purely for educational purposes to practice with historical data, and should not be used to make any final finacial decisions.
 
-## Built-with
-This application has been build heavily on Python3 as well as many other packages that are included in the python library such as Pandas, Plotly, and Datetime. Another important tool used to build the application was Jupyter Notebook. 
-
 ## Contribution
 I intend for the code of this application to be completey open sourced here on GitHub. If you discover a bug or have an enhancement in mind, please don't hesitate to open an issue. Once the issue is approved and assigned to you, fork the application over onto your local machine and create a pull request when finished. Your input and insight is always greatly appreciated.
+
+## Built-with
+This application has been build heavily on Python3 as well as many other packages that are included in the python library such as Pandas, Plotly, and Datetime. Another important tool used to build the application was Jupyter Notebook. 
 
 ## Questions
 Questions? <br /> 
