@@ -16,4 +16,17 @@ def place_trade(trade_decision: TradeDecision, api: OandaApi, log_message, log_e
         log_message(f"Failed to place trade {trade_decision}, already open: {ot}", trade_decision.pair)
         return None
     
+    trade_id = api.place_trade(
+        trade_decision.pair,
+        1000,
+        trade_decision.signal,
+        trade_decision.sl,
+        trade_decision.tp
+    )
+
+    if trade_id is None:
+        log_error(f"ERROR placing {trade_decision}")
+        log_message(f"ERROR placing {trade_decision}", trade_decision.pair)
+    else:
+        log_message(f"Placed trade_id: {trade_id} for {trade_decision}", trade_decision.pair)
     
