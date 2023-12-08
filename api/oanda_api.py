@@ -150,8 +150,8 @@ class OandaApi:
 
         #print(ok, response)
 
-        if ok == True and 'orderFilltransaction' in response:
-            return response['orderFilltransaction']['id']
+        if ok == True and 'orderFillTransaction' in response:
+            return response['orderFillTransaction']['id']
         else:
             return None
         
@@ -171,11 +171,11 @@ class OandaApi:
         ok, response = self.make_request(url)
 
         if ok == True and 'trade' in response:
-            return OpenTrade(response(['trade']))
+            return OpenTrade(response['trade'])
         
     def get_open_trades(self):
         url = f"accounts/{defs.ACCOUNT_ID}/openTrades"
         ok, response = self.make_request(url)
 
-        if ok == True and 'trade' in response:
+        if ok == True and 'trades' in response:
             return [OpenTrade(x) for x in response['trades']] 
