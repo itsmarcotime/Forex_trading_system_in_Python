@@ -43,6 +43,7 @@ def process_candles(df: pd.DataFrame, pair, trade_settings: TradeSettings, log_m
     df['GAIN'] = abs(df.mid_c - df.BB_MA)
     df['TP'] = df.apply(apply_TP, axis=1)
     df['SL'] = df.apply(apply_SL, axis=1, trade_settings=trade_settings)
+    df['LOSS'] = abs(df.mid_c - df.SL)
 
     log_cols = ['PAIR', 'time', 'mid_c', 'mid_o', 'SL', 'TP', 'SPREAD', 'GAIN', 'SIGNAL']
     log_message(f"process_candles:\n{df[log_cols].tail()}", pair)

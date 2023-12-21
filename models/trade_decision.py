@@ -2,6 +2,7 @@ class TradeDecision:
 
     def __init__(self, row):
         self.gain = row.GAIN
+        self.loss = row.LOSS
         self.signal = row.SIGNAL
         self.sl = row.SL
         self.tp = row.TP
