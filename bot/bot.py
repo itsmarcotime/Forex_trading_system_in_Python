@@ -69,3 +69,4 @@ class Bot:
             except Exception as error:
                 self.log_to_error(f"CRASH: {error}")
                 break
+            
