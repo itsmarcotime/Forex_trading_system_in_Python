@@ -4,3 +4,18 @@ from infrastructure.instrument_collection import instrumentCollection as ic
 
 def get_trade_units(api: OandaApi, pair, signal, loss, trade_risk, log_message):
     prices = api.get_prices([pair])
+
+    if prices is None or len(prices) == 0:
+        log_message("get_trade_units() Prices is none", pair)
+        return False
+    
+    price = None 
+    for p in prices:
+        if p.instrument == pair:
+            price = p
+            break
+    if price == None:
+        log_message("get_trade_units() price is None?????", pair)
+        return False
+    
+    log_message("get_trade_units() price {price}", pair)
