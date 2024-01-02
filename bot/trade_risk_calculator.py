@@ -19,3 +19,19 @@ def get_trade_units(api: OandaApi, pair, signal, loss, trade_risk, log_message):
         return False
     
     log_message("get_trade_units() price {price}", pair)
+
+    conv = price.buy_conv
+    if signal == defs.SELL:
+        conv = price.sell_conv
+
+    pipLocation = ic.instruments_dict[pair].pipLocation
+    num_pips = loss / pipLocation
+
+    per_pip_loss = trade_risk / num_pips
+    units = per_pip_loss / (conv * pipLocation)
+
+    log_message(f"{pipLocation} {num_pips} {per_pip_loss} {units:.1f}", pair)
+
+    return units
+
+
