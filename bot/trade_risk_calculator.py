@@ -18,7 +18,7 @@ def get_trade_units(api: OandaApi, pair, signal, loss, trade_risk, log_message):
         log_message("get_trade_units() price is None?????", pair)
         return False
     
-    log_message("get_trade_units() price {price}", pair)
+    log_message(f"get_trade_units() price {price}", pair)
 
     conv = price.buy_conv
     if signal == defs.SELL:
