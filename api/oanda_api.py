@@ -185,12 +185,13 @@ class OandaApi:
         url = f"accounts/{defs.ACCOUNT_ID}/pricing"
 
         params = dict(
-            instruments = ",".join(instruments_list)
+            instruments = ",".join(instruments_list),
+            includeHomeConversions = True
         )
 
         ok, response = self.make_request(url, params=params)
 
-        if ok == True and 'prices' in response:
-            return [ApiPrice(x) for x in response['prices']] 
+        if ok == True and 'prices' in response and 'homeConversions' in response:
+            return [ApiPrice(x, response['homeConversions']) for x in response['prices']] 
         
         return None
