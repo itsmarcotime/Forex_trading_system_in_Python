@@ -11,6 +11,11 @@ API_KEY = private_api
 ACCOUNT_ID = private_account
 OANDA_URL = private_url
 
+SECURE_HEADER = {
+    "Authorization": f"Bearer {API_KEY}",
+    "Content-Type": "application/json"
+}
+
 SELL = -1
 BUY = 1
 NONE = 0
