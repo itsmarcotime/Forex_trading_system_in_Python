@@ -1,6 +1,7 @@
 import json
 import requests
 import constants.defs as defs
+from models.live_api_price import LiveApiPrice
 
 STREAM_URL = f"https://stream-fxpractice.oanda.com/v3"
 
@@ -16,6 +17,8 @@ def stream_prices(pairs_list):
 
     for price in response.iter_lines():
         if price:
-            decode_price = json.loads(price.decode('utf-8'))
-            print(decode_price)
-            print()
+            decoded_price = json.loads(price.decode('utf-8'))
+            # print(decoded_price)
+            # print()
+            if 'type' in decoded_price and decoded_price['type'] == 'PRICE':
+                print(LiveApiPrice(decoded_price))
