@@ -1,15 +1,11 @@
 import json
 import threading
 import time
+from api.stream_prices import PriceStreamer
 
 def load_settings():
     with open("./bot/settings.json", "r") as f:
         return json.loads(f.read())
-    
-def run_price_streamer():
-    print("run_price_streamer START")
-    time.sleep(3)
-    print("run_price_streamer END")
 
 def run_streamer():
     settings = load_settings()
@@ -24,11 +20,22 @@ def run_streamer():
 
     threads = []
 
-    price_stream_t = threading.Thread(target=run_price_streamer)
+    price_stream_t = PriceStreamer(shared_prices, shared_prices_lock, shared_prices_events)
+    price_stream_t.daemon = True
     threads.append(price_stream_t)
     price_stream_t.start()
 
-    for t in threads:
-        t.join()
+    # **** For MAC or Linux use!!!!!!! ***
+    # try:
+    #     for t in threads:
+    #         t.join()
+    # except KeyboardInterrupt:
+    #     print("KeyboardInterrupt")
+
+    try:
+        while True:
+            time.sleep(0.5)
+    except KeyboardInterrupt:
+        print("KeyboardInterrupt")
 
     print("ALL DONE")
