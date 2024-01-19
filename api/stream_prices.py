@@ -17,6 +17,10 @@ class PriceStreamer(threading.Thread):
         self.log = LogWrapper("PriceStreamer")
         print(self.pairs_list)
 
+    def update_live_price(self, live_price: LiveApiPrice):
+        try:
+        except:
+
     def run(self):
 
         params = dict(
