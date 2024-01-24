@@ -1,7 +1,7 @@
 import json
 import threading
 import time
-from api.stream_prices import PriceStreamer
+from stream_example.stream_prices import PriceStreamer
 
 def load_settings():
     with open("./bot/settings.json", "r") as f:
